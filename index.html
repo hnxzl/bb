@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>i love you bb</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+  <body class="intro-active">
+    <!-- Floating hearts background -->
+    <div class="hearts-container" id="hearts-bg"></div>
+
+    <!-- Music player -->
+    <div class="music-player" id="music-player">
+      <audio id="bgMusic" loop preload="auto" volume="0.5">
+        <!-- Tulus - Monokrom -->
+        <source src="./tulus.mp3" type="audio/mpeg" />
+      </audio>
+      <button class="music-toggle" id="musicToggle">
+        <span class="playing">🎵</span>
+        <span class="paused">🔇</span>
+      </button>
+    </div>
+
+    <!-- Intro overlay: countdown first, then message + continue to 4 gifts -->
+    <section id="intro" class="intro">
+      <div class="intro-inner glass animate__animated animate__fadeInDown">
+        <h5 class="gradient-text text-center">
+          Countdown to <span class="highlight">bb</span> birthday:
+        </h5>
+        <ul class="cd-list">
+          <li class="cd-card">
+            <span id="intro-days" class="cd-number">00</span>
+            <span class="cd-label">Days</span>
+          </li>
+          <li class="cd-card">
+            <span id="intro-hours" class="cd-number">00</span>
+            <span class="cd-label">Hours</span>
+          </li>
+          <li class="cd-card">
+            <span id="intro-minutes" class="cd-number">00</span>
+            <span class="cd-label">Minutes</span>
+          </li>
+          <li class="cd-card">
+            <span id="intro-seconds" class="cd-number">00</span>
+            <span class="cd-label">Seconds</span>
+          </li>
+        </ul>
+        <p id="intro-text" class="teks d-none typing-text"></p>
+        <p id="click-cue" class="click-cue d-none">
+          <span class="hand-pointer">👆</span> Click anywhere to continue
+        </p>
+      </div>
+    </section>
+
+    <!-- Card Carousel Container -->
+    <div class="carousel-wrapper d-none" id="carousel-wrapper">
+      <div class="carousel-container">
+        <!-- Header with title -->
+        <div class="carousel-header">
+          <h1 class="gradient-text">Four Gifts For You 💝</h1>
+          <p class="carousel-subtitle">Swipe or click next to explore</p>
+        </div>
+
+        <!-- Card slider -->
+        <div class="card-slider" id="cardSlider">
+          <!-- Card 1 -->
+          <div class="gift-card active" data-card="1">
+            <div class="card-content">
+              <div class="card-number">01</div>
+              <h2>Hadiah Pertama</h2>
+
+              <!-- Tab Navigation -->
+              <div class="card-tabs">
+                <button class="card-tab active" data-tab="story-1">
+                  📖 Story
+                </button>
+                <button class="card-tab" data-tab="media-1">🎬 Video</button>
+              </div>
+
+              <!-- Tab Content -->
+              <div class="card-tab-content active" id="story-1">
+                <p class="card-desc">
+                  Km tau kan minum air teh penting. dan kamu juga selalu
+                  ngingetin aku untuk jaga kesehatan. aku mau dengan adanya ini
+                  bisa jadi pengingat harian juga buat kamu sayangkuuu<3
+                </p>
+              </div>
+
+              <div class="card-tab-content" id="media-1">
+                <div class="video-block">
+                  <h3 class="video-title">Review</h3>
+                  <div class="video-wrapper portrait">
+                    <iframe
+                      width="100%"
+                      height="315"
+                      src="https://www.youtube.com/embed/9FjFf8lpRKA"
+                      title="botol dan bunga"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="gift-card" data-card="2">
+            <div class="card-content">
+              <div class="card-number">02</div>
+              <h2>Hadiah Kedua</h2>
+
+              <!-- Tab Navigation -->
+              <div class="card-tabs">
+                <button class="card-tab active" data-tab="story-2">
+                  📖 Story
+                </button>
+                <button class="card-tab" data-tab="photo-2">📸 Photo</button>
+                <button class="card-tab" data-tab="chat-2">💬 Chat</button>
+                <button class="card-tab" data-tab="media-2">🎬 Video</button>
+              </div>
+
+              <!-- Tab Content -->
+              <div class="card-tab-content active" id="story-2">
+                <p class="card-desc">
+                  Every chat like this is also a reason why I love you, but now
+                  ajul is on your keychain and can be with you just like my
+                  love.
+                </p>
+              </div>
+
+              <div class="card-tab-content" id="photo-2">
+                <div class="photo-top">
+                  <img
+                    src="ajul.jpg"
+                    alt="Foto pacar dengan Ajul"
+                    class="rounded-photo"
+                  />
+                </div>
+              </div>
+
+              <div class="card-tab-content" id="chat-2">
+                <div class="chat-show" aria-label="Galeri Chat Lucu">
+                  <div class="chat-tabs" role="tablist">
+                    <button
+                      class="chat-tab is-active"
+                      role="tab"
+                      aria-selected="true"
+                      aria-controls="panel-chat1"
+                      id="tab-chat1"
+                    >
+                      Chat 1
+                    </button>
+                    <button
+                      class="chat-tab"
+                      role="tab"
+                      aria-selected="false"
+                      aria-controls="panel-chat2"
+                      id="tab-chat2"
+                    >
+                      Chat 2
+                    </button>
+                    <button
+                      class="chat-tab"
+                      role="tab"
+                      aria-selected="false"
+                      aria-controls="panel-chat3"
+                      id="tab-chat3"
+                    >
+                      Chat 3
+                    </button>
+                  </div>
+                  <div class="chat-panels">
+                    <!-- Panel 1 -->
+                    <div
+                      class="chat-area chat-panel is-active"
+                      id="panel-chat1"
+                      role="tabpanel"
+                      aria-labelledby="tab-chat1"
+                    >
+                      <div class="chat dark">
+                        <div class="bubble received">GEMASHHHH</div>
+                        <div class="bubble received">gerak gerak dia</div>
+                        <div class="bubble received">lucu ajul</div>
+                      </div>
+                      <p class="chat-caption">awal obsesi ajul dimulai 💛</p>
+                    </div>
+                    <!-- Panel 2 -->
+                    <div
+                      class="chat-area chat-panel"
+                      id="panel-chat2"
+                      role="tabpanel"
+                      aria-labelledby="tab-chat2"
+                      hidden
+                    >
+                      <div class="chat dark">
+                        <div class="bubble received">pwiss mo peluk ajul</div>
+                        <div class="bubble sent">MAUU KAMUUU</div>
+                      </div>
+                      <p class="chat-caption">
+                        random random bgt km tiba tiba 💤
+                      </p>
+                    </div>
+                    <!-- Panel 3 -->
+                    <div
+                      class="chat-area chat-panel"
+                      id="panel-chat3"
+                      role="tabpanel"
+                      aria-labelledby="tab-chat3"
+                      hidden
+                    >
+                      <div class="chat dark">
+                        <div class="bubble received">mw ajul 🥺🥺</div>
+                        <div class="bubble sent">o gmw ak</div>
+                        <div class="bubble received">ajul 😳💛</div>
+                        <div class="bubble sent">cih</div>
+                        <div class="bubble received">be nailong</div>
+                        <div class="bubble sent">cat kuning dlu</div>
+                      </div>
+                      <p class="chat-caption">ajul mulu akunya egk😠</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-tab-content" id="media-2">
+                <div class="video-block">
+                  <h3 class="video-title">Video Dibalik Layar: Review Ajul</h3>
+                  <div class="video-wrapper portrait">
+                    <iframe
+                      width="100%"
+                      height="315"
+                      src="https://www.youtube.com/embed/zKd5QNfRsRI"
+                      title="ajul"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="gift-card" data-card="3">
+            <div class="card-content">
+              <div class="card-number">03</div>
+              <h2>Hadiah Ketiga</h2>
+
+              <!-- Tab Navigation -->
+              <div class="card-tabs">
+                <button class="card-tab active" data-tab="story-3">
+                  📖 Story
+                </button>
+                <button class="card-tab" data-tab="media-3">🎬 Video</button>
+              </div>
+
+              <!-- Tab Content -->
+              <div class="card-tab-content active" id="story-3">
+                <p class="card-desc">
+                  sebenernya gaperlu nunggu kamu ulang tahun buat ngasihnya tapi
+                  pengen aja sekalian hehe
+                </p>
+              </div>
+
+              <div class="card-tab-content" id="media-3">
+                <div class="video-block">
+                  <h3 class="video-title">Review Pompa Galon</h3>
+                  <div class="video-wrapper">
+                    <iframe
+                      width="100%"
+                      height="315"
+                      src="https://www.youtube.com/embed/6A8H3I5sK24"
+                      title="pompa"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="gift-card" data-card="4">
+            <div class="card-content">
+              <div class="card-number">04</div>
+              <h2>Hadiah Keempat</h2>
+
+              <!-- Tab Navigation -->
+              <div class="card-tabs">
+                <button class="card-tab active" data-tab="story-4">
+                  📖 Story
+                </button>
+                <button class="card-tab" data-tab="photo-4">📸 Photo</button>
+              </div>
+
+              <!-- Tab Content -->
+              <div class="card-tab-content active" id="story-4">
+                <p class="card-desc">Birthday blooms, just for you.</p>
+              </div>
+
+              <div class="card-tab-content" id="photo-4">
+                <div class="photo-focus">
+                  <img
+                    src="bunga.jpg"
+                    alt="Foto memegang bunga"
+                    class="focus-photo"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation controls -->
+        <div class="carousel-controls">
+          <button class="carousel-btn prev" id="prevBtn" disabled>
+            <span>←</span>
+          </button>
+          <div class="carousel-dots" id="carouselDots">
+            <span class="dot active" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+            <span class="dot" data-slide="3"></span>
+            <span class="dot" data-slide="4"></span>
+          </div>
+          <button class="carousel-btn next" id="nextBtn">
+            <span>→</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Old structure hidden -->
+    <header class="hero d-none" id="home">
+      <div class="hero-inner">
+        <h1>Happy Birthday Babee!</h1>
+        <p class="lead">Four Gifts. One Reason "You". klik dibawah</p>
+        <nav class="gift-nav" aria-label="Navigasi Hadiah">
+          <a href="#hadiah1">Hadiah 1</a>
+          <a href="#hadiah2">Hadiah 2</a>
+          <a href="#hadiah3">Hadiah 3</a>
+          <a href="#hadiah4">Hadiah 4</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="d-none">
+      <!-- Hadiah 1 -->
+      <section class="gift d-none" id="hadiah1">
+        <div class="gift-inner">
+          <h2>Hadiah Pertama</h2>
+          <p class="desc">
+            Km tau kan minum air teh penting. dan kamu juga selalu ngingetin aku
+            untuk jaga kesehatan. aku mau dengan adanya ini bisa jadi pengingat
+            harian juga buat kamu sayangkuuu<3
+          </p>
+          <div class="video-block">
+            <h3 class="video-title">Review</h3>
+            <div class="video-wrapper portrait">
+              <iframe
+                width="100%"
+                height="315"
+                src="https://www.youtube.com/embed/9FjFf8lpRKA"
+                title="botol dan bunga"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hadiah 2 -->
+      <section class="gift" id="hadiah2">
+        <div class="gift-inner">
+          <h2>Hadiah Kedua</h2>
+          <div class="photo-top">
+            <img
+              src="ajul.jpg"
+              alt="Foto pacar dengan Ajul"
+              class="rounded-photo"
+            />
+          </div>
+          <div class="chat-show" aria-label="Galeri Chat Lucu">
+            <div class="chat-tabs" role="tablist">
+              <button
+                class="chat-tab is-active"
+                role="tab"
+                aria-selected="true"
+                aria-controls="panel-chat1"
+                id="tab-chat1"
+              >
+                Chat 1
+              </button>
+              <button
+                class="chat-tab"
+                role="tab"
+                aria-selected="false"
+                aria-controls="panel-chat2"
+                id="tab-chat2"
+              >
+                Chat 2
+              </button>
+              <button
+                class="chat-tab"
+                role="tab"
+                aria-selected="false"
+                aria-controls="panel-chat3"
+                id="tab-chat3"
+              >
+                Chat 3
+              </button>
+            </div>
+            <div class="chat-panels">
+              <!-- Panel 1 -->
+              <div
+                class="chat-area chat-panel is-active"
+                id="panel-chat1"
+                role="tabpanel"
+                aria-labelledby="tab-chat1"
+              >
+                <div class="chat dark">
+                  <div class="bubble received">GEMASHHHH</div>
+                  <div class="bubble received">gerak gerak dia</div>
+                  <div class="bubble received">lucu ajul</div>
+                </div>
+                <p class="chat-caption">awal obsesi ajul dimulai 💛</p>
+              </div>
+              <!-- Panel 2 -->
+              <div
+                class="chat-area chat-panel"
+                id="panel-chat2"
+                role="tabpanel"
+                aria-labelledby="tab-chat2"
+                hidden
+              >
+                <div class="chat dark">
+                  <div class="bubble received">pwiss mo peluk ajul</div>
+                  <div class="bubble sent">MAUU KAMUUU</div>
+                </div>
+                <p class="chat-caption">random random bgt km tiba tiba 💤</p>
+              </div>
+              <!-- Panel 3 -->
+              <div
+                class="chat-area chat-panel"
+                id="panel-chat3"
+                role="tabpanel"
+                aria-labelledby="tab-chat3"
+                hidden
+              >
+                <div class="chat dark">
+                  <div class="bubble received">mw ajul 🥺🥺</div>
+                  <div class="bubble sent">o gmw ak</div>
+                  <div class="bubble received">ajul 😳💛</div>
+                  <div class="bubble sent">cih</div>
+                  <div class="bubble received">be nailong</div>
+                  <div class="bubble sent">cat kuning dlu</div>
+                </div>
+                <p class="chat-caption">ajul mulu akunya egk😠</p>
+              </div>
+            </div>
+            <p class="chat-overall">
+              Every chat like this is also a reason why I love you, but now ajul
+              is on your keychain and can be with you just like my love.
+            </p>
+          </div>
+          <div class="video-block">
+            <h3 class="video-title">Video Dibalik Layar: Review Ajul</h3>
+            <div class="video-wrapper portrait">
+              <iframe
+                width="100%"
+                height="315"
+                src="https://www.youtube.com/embed/zKd5QNfRsRI"
+                title="ajul"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hadiah 3 -->
+      <section class="gift" id="hadiah3">
+        <div class="gift-inner">
+          <h2>Hadiah Ketiga</h2>
+          <p class="desc">
+            sebenernya gaperlu nunggu kamu ulang tahun buat ngasihnya tapi
+            pengen aja sekalian hehe
+          </p>
+          <div class="video-block">
+            <h3 class="video-title">Review Pompa Galon</h3>
+            <div class="video-wrapper">
+              <iframe
+                width="100%"
+                height="315"
+                src="https://www.youtube.com/embed/6A8H3I5sK24"
+                title="pompa"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hadiah 4 -->
+      <section class="gift" id="hadiah4">
+        <div class="gift-inner">
+          <h2>Hadiah Keempat</h2>
+          <p class="desc">Birthday blooms, just for you.</p>
+          <div class="photo-focus">
+            <img
+              src="bunga.jpg"
+              alt="Foto memegang bunga"
+              class="focus-photo"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Intro will cover this content until user clicks Next -->
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+      // ===== FLOATING HEARTS =====
+      function createHearts() {
+        const container = document.getElementById("hearts-bg");
+        const heartCount = 20;
+        const hearts = ["💕", "💖", "💗", "💝", "💓", "❤️", "🎀"];
+
+        for (let i = 0; i < heartCount; i++) {
+          const heart = document.createElement("div");
+          heart.className = "floating-heart";
+          heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+          heart.style.left = Math.random() * 100 + "%";
+          heart.style.animationDelay = Math.random() * 5 + "s";
+          heart.style.animationDuration = 8 + Math.random() * 4 + "s";
+          heart.style.fontSize = 20 + Math.random() * 20 + "px";
+          container.appendChild(heart);
+        }
+      }
+      createHearts();
+
+      // ===== MUSIC PLAYER =====
+      const bgMusic = document.getElementById("bgMusic");
+      const musicToggle = document.getElementById("musicToggle");
+      const musicPlayer = document.getElementById("music-player");
+      let isMusicPlaying = false;
+
+      // Set volume to 50%
+      bgMusic.volume = 0.5;
+
+      // Try auto-play on page load
+      bgMusic
+        .play()
+        .then(() => {
+          isMusicPlaying = true;
+          musicPlayer.classList.add("playing");
+        })
+        .catch(() => {
+          // Auto-play blocked, wait for user interaction
+          console.log("Auto-play blocked. Click to start music.");
+        });
+
+      // Toggle play/pause
+      musicToggle.addEventListener("click", () => {
+        if (isMusicPlaying) {
+          bgMusic.pause();
+          musicPlayer.classList.remove("playing");
+        } else {
+          bgMusic.play();
+          musicPlayer.classList.add("playing");
+        }
+        isMusicPlaying = !isMusicPlaying;
+      });
+
+      // Auto-play on first user interaction
+      document.body.addEventListener(
+        "click",
+        () => {
+          if (!isMusicPlaying) {
+            bgMusic
+              .play()
+              .then(() => {
+                isMusicPlaying = true;
+                musicPlayer.classList.add("playing");
+              })
+              .catch(() => {});
+          }
+        },
+        { once: true }
+      );
+
+      // ===== CONFETTI =====
+      function triggerConfetti() {
+        const duration = 3000;
+        const end = Date.now() + duration;
+
+        (function frame() {
+          confetti({
+            particleCount: 3,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 },
+            colors: ["#ffdba9", "#ffc9c9", "#c7f8c2", "#ffb5e8", "#b5f8d3"],
+          });
+          confetti({
+            particleCount: 3,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 },
+            colors: ["#ffdba9", "#ffc9c9", "#c7f8c2", "#ffb5e8", "#b5f8d3"],
+          });
+
+          if (Date.now() < end) {
+            requestAnimationFrame(frame);
+          }
+        })();
+      }
+
+      // ===== COUNTDOWN INTRO =====
+      const second = 1000,
+        minute = second * 60,
+        hour = minute * 60,
+        day = hour * 24;
+      const countDown = new Date("Nov 10, 2025 00:00:00").getTime();
+      const elIntroD = document.getElementById("intro-days");
+      const elIntroH = document.getElementById("intro-hours");
+      const elIntroM = document.getElementById("intro-minutes");
+      const elIntroS = document.getElementById("intro-seconds");
+      const btnIntroNext = document.getElementById("intro-next");
+      const introText = document.getElementById("intro-text");
+      const introCdList = document.querySelector(".intro .cd-list");
+      const introHeading = document.querySelector(".intro h5");
+
+      const longText =
+        "happy birthday sayangku, semoga kedepannya apapun yang kamu inginkan terwujud, dan apa yang kamu semogakan tersemogakan. juga semoga kita bisa terus ngerayain ulang tahun bareng bareng dan bisa terus bersama selamanyaaa<3\n\n" +
+        "tapi aku sedih, karna waktu itu aku mau cerita tapi ga jadi cerita karna seharusnya ga harus aku ceritain. keuangan aku lagi kacau. jadi aku gabisa ajak kamu kesana kesini sesuai plan aku. dan cuman bisa ngasih ginian🥺🥺🥺.  tadinya mau ngajak kamu makan ramen dan kita foto studio berdua. maaf yaa? tapi nanti kalo aku udah ada aku ajakk kamuuu! dan semoga aku bisa ngewujudin plan aku:)";
+
+      const countdownInterval = setInterval(() => {
+        const now = new Date().getTime();
+        const dist = countDown - now;
+        const d = Math.max(0, Math.floor(dist / day));
+        const h = Math.max(0, Math.floor((dist % day) / hour));
+        const m = Math.max(0, Math.floor((dist % hour) / minute));
+        const s = Math.max(0, Math.floor((dist % minute) / second));
+        if (elIntroD) elIntroD.textContent = String(d).padStart(2, "0");
+        elIntroH.textContent = String(h).padStart(2, "0");
+        elIntroM.textContent = String(m).padStart(2, "0");
+        elIntroS.textContent = String(s).padStart(2, "0");
+        if (dist < 0) {
+          clearInterval(countdownInterval);
+          // CONFETTI TIME! 🎉
+          triggerConfetti();
+
+          // Hide countdown, show message, enable Next
+          introCdList.classList.add("d-none");
+          introHeading.classList.add("d-none");
+
+          // Add smooth fade-in for text
+          introText.classList.remove("d-none");
+          introText.style.opacity = "0";
+          setTimeout(() => {
+            introText.style.transition = "opacity 0.8s ease-in";
+            introText.style.opacity = "1";
+          }, 100);
+
+          new TypeIt("#intro-text", {
+            speed: 35, // Slower = more smooth (was 55)
+            cursor: false,
+            waitUntilVisible: true,
+            afterComplete: function () {
+              // Show click cue ONLY after typing finishes
+              setTimeout(() => {
+                document.getElementById("click-cue").classList.remove("d-none");
+              }, 1000);
+            },
+          })
+            .type(longText)
+            .go();
+        }
+      }, 1000);
+
+      // Click anywhere to continue after typing done
+      let typingDone = false;
+      document
+        .getElementById("intro-text")
+        .addEventListener("DOMSubtreeModified", function () {
+          typingDone = true;
+        });
+
+      document.getElementById("intro").addEventListener("click", () => {
+        const clickCue = document.getElementById("click-cue");
+        if (!clickCue.classList.contains("d-none")) {
+          document.body.classList.remove("intro-active");
+          const intro = document.getElementById("intro");
+          intro.classList.add("animate__fadeOut");
+          setTimeout(() => {
+            intro.remove();
+            // Show carousel after intro
+            document
+              .getElementById("carousel-wrapper")
+              .classList.remove("d-none");
+          }, 400);
+        }
+      });
+
+      // ===== CAROUSEL SLIDER =====
+      let currentSlide = 1;
+      const totalSlides = 4;
+      const slider = document.getElementById("cardSlider");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const dots = document.querySelectorAll(".dot");
+
+      function updateSlider() {
+        // Update cards
+        const cards = document.querySelectorAll(".gift-card");
+        cards.forEach((card, index) => {
+          card.classList.remove("active", "prev", "next");
+          if (index + 1 === currentSlide) {
+            card.classList.add("active");
+          } else if (index + 1 < currentSlide) {
+            card.classList.add("prev");
+          } else {
+            card.classList.add("next");
+          }
+        });
+
+        // Update dots
+        dots.forEach((dot, index) => {
+          dot.classList.toggle("active", index + 1 === currentSlide);
+        });
+
+        // Update buttons
+        prevBtn.disabled = currentSlide === 1;
+        nextBtn.disabled = currentSlide === totalSlides;
+      }
+
+      prevBtn.addEventListener("click", () => {
+        if (currentSlide > 1) {
+          currentSlide--;
+          updateSlider();
+        }
+      });
+
+      nextBtn.addEventListener("click", () => {
+        if (currentSlide < totalSlides) {
+          currentSlide++;
+          updateSlider();
+        }
+      });
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          currentSlide = index + 1;
+          updateSlider();
+        });
+      });
+
+      // Swipe support for mobile
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      slider.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      });
+
+      slider.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      });
+
+      function handleSwipe() {
+        if (touchEndX < touchStartX - 50 && currentSlide < totalSlides) {
+          // Swipe left - next
+          currentSlide++;
+          updateSlider();
+        }
+        if (touchEndX > touchStartX + 50 && currentSlide > 1) {
+          // Swipe right - prev
+          currentSlide--;
+          updateSlider();
+        }
+      }
+
+      // ===== CARD TABS SYSTEM =====
+      const cardTabs = document.querySelectorAll(".card-tab");
+
+      cardTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const targetId = tab.getAttribute("data-tab");
+          const card = tab.closest(".gift-card");
+
+          // Remove active from all tabs in this card
+          card
+            .querySelectorAll(".card-tab")
+            .forEach((t) => t.classList.remove("active"));
+
+          // Remove active from all tab contents in this card
+          card.querySelectorAll(".card-tab-content").forEach((content) => {
+            content.classList.remove("active");
+          });
+
+          // Add active to clicked tab
+          tab.classList.add("active");
+
+          // Add active to target content
+          const targetContent = document.getElementById(targetId);
+          if (targetContent) {
+            targetContent.classList.add("active");
+          }
+        });
+      });
+
+      // Keyboard navigation
+      document.addEventListener("keydown", (e) => {
+        if (
+          document
+            .getElementById("carousel-wrapper")
+            .classList.contains("d-none")
+        )
+          return;
+
+        if (e.key === "ArrowLeft" && currentSlide > 1) {
+          currentSlide--;
+          updateSlider();
+        }
+        if (e.key === "ArrowRight" && currentSlide < totalSlides) {
+          currentSlide++;
+          updateSlider();
+        }
+      });
+
+      // ===== VIDEO-MUSIC SYNC =====
+      // Auto pause music when video plays, resume when video ends/pauses
+      const allVideos = document.querySelectorAll("video");
+
+      allVideos.forEach((video) => {
+        // When video starts playing
+        video.addEventListener("play", () => {
+          if (bgMusic && !bgMusic.paused) {
+            bgMusic.pause();
+            // Add data attribute to track that music was playing
+            video.setAttribute("data-music-was-playing", "true");
+          }
+        });
+
+        // When video pauses or ends
+        video.addEventListener("pause", () => {
+          if (video.getAttribute("data-music-was-playing") === "true") {
+            bgMusic.play();
+            video.removeAttribute("data-music-was-playing");
+          }
+        });
+
+        video.addEventListener("ended", () => {
+          if (video.getAttribute("data-music-was-playing") === "true") {
+            bgMusic.play();
+            video.removeAttribute("data-music-was-playing");
+          }
+        });
+      });
+
+      // Chat Tabs Interaction (Accessible)
+      const tabButtons = document.querySelectorAll(".chat-tab");
+      const panels = document.querySelectorAll(".chat-panel");
+      tabButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          // update tab state
+          tabButtons.forEach((b) => {
+            b.classList.toggle("is-active", b === btn);
+            b.setAttribute("aria-selected", b === btn ? "true" : "false");
+          });
+          // show related panel
+          panels.forEach((p) => {
+            const match = p.id === btn.getAttribute("aria-controls");
+            p.classList.toggle("is-active", match);
+            if (match) {
+              p.removeAttribute("hidden");
+            } else {
+              p.setAttribute("hidden", "");
+            }
+          });
+        });
+      });
+
+      // Nav active state saat scroll
+      const links = document.querySelectorAll(".gift-nav a");
+      const sections = Array.from(document.querySelectorAll("section.gift"));
+      if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const id = "#" + entry.target.id;
+                links.forEach((a) =>
+                  a.classList.toggle("active", a.getAttribute("href") === id)
+                );
+              }
+            });
+          },
+          { threshold: 0.5 }
+        );
+        sections.forEach((s) => io.observe(s));
+      }
+    </script>
+  </body>
+</html>
