@@ -1,938 +1,1156 @@
-<!DOCTYPE html>
-<html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>i love you bb</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-  </head>
-  <body class="intro-active">
-    <!-- Floating hearts background -->
-    <div class="hearts-container" id="hearts-bg"></div>
-
-    <!-- Music player -->
-    <div class="music-player" id="music-player">
-      <audio id="bgMusic" loop preload="auto" volume="0.5">
-        <!-- Tulus - Monokrom -->
-        <source src="./tulus.mp3" type="audio/mpeg" />
-      </audio>
-      <button class="music-toggle" id="musicToggle">
-        <span class="playing">🎵</span>
-        <span class="paused">🔇</span>
-      </button>
-    </div>
-
-    <!-- Intro overlay: countdown first, then message + continue to 4 gifts -->
-    <section id="intro" class="intro">
-      <div class="intro-inner glass animate__animated animate__fadeInDown">
-        <h5 class="gradient-text text-center">
-          Countdown to <span class="highlight">bb</span> birthday:
-        </h5>
-        <ul class="cd-list">
-          <li class="cd-card">
-            <span id="intro-days" class="cd-number">00</span>
-            <span class="cd-label">Days</span>
-          </li>
-          <li class="cd-card">
-            <span id="intro-hours" class="cd-number">00</span>
-            <span class="cd-label">Hours</span>
-          </li>
-          <li class="cd-card">
-            <span id="intro-minutes" class="cd-number">00</span>
-            <span class="cd-label">Minutes</span>
-          </li>
-          <li class="cd-card">
-            <span id="intro-seconds" class="cd-number">00</span>
-            <span class="cd-label">Seconds</span>
-          </li>
-        </ul>
-        <p id="intro-text" class="teks d-none typing-text"></p>
-        <p id="click-cue" class="click-cue d-none">
-          <span class="hand-pointer">👆</span> Click anywhere to continue
-        </p>
-      </div>
-    </section>
-
-    <!-- Card Carousel Container -->
-    <div class="carousel-wrapper d-none" id="carousel-wrapper">
-      <div class="carousel-container">
-        <!-- Header with title -->
-        <div class="carousel-header">
-          <h1 class="gradient-text">Four Gifts For You 💝</h1>
-          <p class="carousel-subtitle">Swipe or click next to explore</p>
-        </div>
-
-        <!-- Card slider -->
-        <div class="card-slider" id="cardSlider">
-          <!-- Card 1 -->
-          <div class="gift-card active" data-card="1">
-            <div class="card-content">
-              <div class="card-number">01</div>
-              <h2>Hadiah Pertama</h2>
-
-              <!-- Tab Navigation -->
-              <div class="card-tabs">
-                <button class="card-tab active" data-tab="story-1">
-                  📖 Story
-                </button>
-                <button class="card-tab" data-tab="media-1">🎬 Video</button>
-              </div>
-
-              <!-- Tab Content -->
-              <div class="card-tab-content active" id="story-1">
-                <p class="card-desc">
-                  Km tau kan minum air teh penting. dan kamu juga selalu
-                  ngingetin aku untuk jaga kesehatan. aku mau dengan adanya ini
-                  bisa jadi pengingat harian juga buat kamu sayangkuuu<3
-                </p>
-              </div>
-
-              <div class="card-tab-content" id="media-1">
-                <div class="video-block">
-                  <h3 class="video-title">Review</h3>
-                  <div class="video-wrapper portrait">
-                    <iframe
-                      width="100%"
-                      height="315"
-                      src="https://www.youtube.com/embed/9FjFf8lpRKA"
-                      title="botol dan bunga"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerpolicy="strict-origin-when-cross-origin"
-                      allowfullscreen
-                    ></iframe>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="gift-card" data-card="2">
-            <div class="card-content">
-              <div class="card-number">02</div>
-              <h2>Hadiah Kedua</h2>
-
-              <!-- Tab Navigation -->
-              <div class="card-tabs">
-                <button class="card-tab active" data-tab="story-2">
-                  📖 Story
-                </button>
-                <button class="card-tab" data-tab="photo-2">📸 Photo</button>
-                <button class="card-tab" data-tab="chat-2">💬 Chat</button>
-                <button class="card-tab" data-tab="media-2">🎬 Video</button>
-              </div>
-
-              <!-- Tab Content -->
-              <div class="card-tab-content active" id="story-2">
-                <p class="card-desc">
-                  Every chat like this is also a reason why I love you, but now
-                  ajul is on your keychain and can be with you just like my
-                  love.
-                </p>
-              </div>
-
-              <div class="card-tab-content" id="photo-2">
-                <div class="photo-top">
-                  <img
-                    src="ajul.jpg"
-                    alt="Foto pacar dengan Ajul"
-                    class="rounded-photo"
-                  />
-                </div>
-              </div>
-
-              <div class="card-tab-content" id="chat-2">
-                <div class="chat-show" aria-label="Galeri Chat Lucu">
-                  <div class="chat-tabs" role="tablist">
-                    <button
-                      class="chat-tab is-active"
-                      role="tab"
-                      aria-selected="true"
-                      aria-controls="panel-chat1"
-                      id="tab-chat1"
-                    >
-                      Chat 1
-                    </button>
-                    <button
-                      class="chat-tab"
-                      role="tab"
-                      aria-selected="false"
-                      aria-controls="panel-chat2"
-                      id="tab-chat2"
-                    >
-                      Chat 2
-                    </button>
-                    <button
-                      class="chat-tab"
-                      role="tab"
-                      aria-selected="false"
-                      aria-controls="panel-chat3"
-                      id="tab-chat3"
-                    >
-                      Chat 3
-                    </button>
-                  </div>
-                  <div class="chat-panels">
-                    <!-- Panel 1 -->
-                    <div
-                      class="chat-area chat-panel is-active"
-                      id="panel-chat1"
-                      role="tabpanel"
-                      aria-labelledby="tab-chat1"
-                    >
-                      <div class="chat dark">
-                        <div class="bubble received">GEMASHHHH</div>
-                        <div class="bubble received">gerak gerak dia</div>
-                        <div class="bubble received">lucu ajul</div>
-                      </div>
-                      <p class="chat-caption">awal obsesi ajul dimulai 💛</p>
-                    </div>
-                    <!-- Panel 2 -->
-                    <div
-                      class="chat-area chat-panel"
-                      id="panel-chat2"
-                      role="tabpanel"
-                      aria-labelledby="tab-chat2"
-                      hidden
-                    >
-                      <div class="chat dark">
-                        <div class="bubble received">pwiss mo peluk ajul</div>
-                        <div class="bubble sent">MAUU KAMUUU</div>
-                      </div>
-                      <p class="chat-caption">
-                        random random bgt km tiba tiba 💤
-                      </p>
-                    </div>
-                    <!-- Panel 3 -->
-                    <div
-                      class="chat-area chat-panel"
-                      id="panel-chat3"
-                      role="tabpanel"
-                      aria-labelledby="tab-chat3"
-                      hidden
-                    >
-                      <div class="chat dark">
-                        <div class="bubble received">mw ajul 🥺🥺</div>
-                        <div class="bubble sent">o gmw ak</div>
-                        <div class="bubble received">ajul 😳💛</div>
-                        <div class="bubble sent">cih</div>
-                        <div class="bubble received">be nailong</div>
-                        <div class="bubble sent">cat kuning dlu</div>
-                      </div>
-                      <p class="chat-caption">ajul mulu akunya egk😠</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="card-tab-content" id="media-2">
-                <div class="video-block">
-                  <h3 class="video-title">Video Dibalik Layar: Review Ajul</h3>
-                  <div class="video-wrapper portrait">
-                    <iframe
-                      width="100%"
-                      height="315"
-                      src="https://www.youtube.com/embed/zKd5QNfRsRI"
-                      title="ajul"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerpolicy="strict-origin-when-cross-origin"
-                      allowfullscreen
-                    ></iframe>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="gift-card" data-card="3">
-            <div class="card-content">
-              <div class="card-number">03</div>
-              <h2>Hadiah Ketiga</h2>
-
-              <!-- Tab Navigation -->
-              <div class="card-tabs">
-                <button class="card-tab active" data-tab="story-3">
-                  📖 Story
-                </button>
-                <button class="card-tab" data-tab="media-3">🎬 Video</button>
-              </div>
-
-              <!-- Tab Content -->
-              <div class="card-tab-content active" id="story-3">
-                <p class="card-desc">
-                  sebenernya gaperlu nunggu kamu ulang tahun buat ngasihnya tapi
-                  pengen aja sekalian hehe
-                </p>
-              </div>
-
-              <div class="card-tab-content" id="media-3">
-                <div class="video-block">
-                  <h3 class="video-title">Review Pompa Galon</h3>
-                  <div class="video-wrapper">
-                    <iframe
-                      width="100%"
-                      height="315"
-                      src="https://www.youtube.com/embed/6A8H3I5sK24"
-                      title="pompa"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerpolicy="strict-origin-when-cross-origin"
-                      allowfullscreen
-                    ></iframe>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="gift-card" data-card="4">
-            <div class="card-content">
-              <div class="card-number">04</div>
-              <h2>Hadiah Keempat</h2>
-
-              <!-- Tab Navigation -->
-              <div class="card-tabs">
-                <button class="card-tab active" data-tab="story-4">
-                  📖 Story
-                </button>
-                <button class="card-tab" data-tab="photo-4">📸 Photo</button>
-              </div>
-
-              <!-- Tab Content -->
-              <div class="card-tab-content active" id="story-4">
-                <p class="card-desc">Birthday blooms, just for you.</p>
-              </div>
-
-              <div class="card-tab-content" id="photo-4">
-                <div class="photo-focus">
-                  <img
-                    src="bunga.jpg"
-                    alt="Foto memegang bunga"
-                    class="focus-photo"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Navigation controls -->
-        <div class="carousel-controls">
-          <button class="carousel-btn prev" id="prevBtn" disabled>
-            <span>←</span>
-          </button>
-          <div class="carousel-dots" id="carouselDots">
-            <span class="dot active" data-slide="1"></span>
-            <span class="dot" data-slide="2"></span>
-            <span class="dot" data-slide="3"></span>
-            <span class="dot" data-slide="4"></span>
-          </div>
-          <button class="carousel-btn next" id="nextBtn">
-            <span>→</span>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Old structure hidden -->
-    <header class="hero d-none" id="home">
-      <div class="hero-inner">
-        <h1>Happy Birthday Babee!</h1>
-        <p class="lead">Four Gifts. One Reason "You". klik dibawah</p>
-        <nav class="gift-nav" aria-label="Navigasi Hadiah">
-          <a href="#hadiah1">Hadiah 1</a>
-          <a href="#hadiah2">Hadiah 2</a>
-          <a href="#hadiah3">Hadiah 3</a>
-          <a href="#hadiah4">Hadiah 4</a>
-        </nav>
-      </div>
-    </header>
-
-    <main class="d-none">
-      <!-- Hadiah 1 -->
-      <section class="gift d-none" id="hadiah1">
-        <div class="gift-inner">
-          <h2>Hadiah Pertama</h2>
-          <p class="desc">
-            Km tau kan minum air teh penting. dan kamu juga selalu ngingetin aku
-            untuk jaga kesehatan. aku mau dengan adanya ini bisa jadi pengingat
-            harian juga buat kamu sayangkuuu<3
-          </p>
-          <div class="video-block">
-            <h3 class="video-title">Review</h3>
-            <div class="video-wrapper portrait">
-              <iframe
-                width="100%"
-                height="315"
-                src="https://www.youtube.com/embed/9FjFf8lpRKA"
-                title="botol dan bunga"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Hadiah 2 -->
-      <section class="gift" id="hadiah2">
-        <div class="gift-inner">
-          <h2>Hadiah Kedua</h2>
-          <div class="photo-top">
-            <img
-              src="ajul.jpg"
-              alt="Foto pacar dengan Ajul"
-              class="rounded-photo"
-            />
-          </div>
-          <div class="chat-show" aria-label="Galeri Chat Lucu">
-            <div class="chat-tabs" role="tablist">
-              <button
-                class="chat-tab is-active"
-                role="tab"
-                aria-selected="true"
-                aria-controls="panel-chat1"
-                id="tab-chat1"
-              >
-                Chat 1
-              </button>
-              <button
-                class="chat-tab"
-                role="tab"
-                aria-selected="false"
-                aria-controls="panel-chat2"
-                id="tab-chat2"
-              >
-                Chat 2
-              </button>
-              <button
-                class="chat-tab"
-                role="tab"
-                aria-selected="false"
-                aria-controls="panel-chat3"
-                id="tab-chat3"
-              >
-                Chat 3
-              </button>
-            </div>
-            <div class="chat-panels">
-              <!-- Panel 1 -->
-              <div
-                class="chat-area chat-panel is-active"
-                id="panel-chat1"
-                role="tabpanel"
-                aria-labelledby="tab-chat1"
-              >
-                <div class="chat dark">
-                  <div class="bubble received">GEMASHHHH</div>
-                  <div class="bubble received">gerak gerak dia</div>
-                  <div class="bubble received">lucu ajul</div>
-                </div>
-                <p class="chat-caption">awal obsesi ajul dimulai 💛</p>
-              </div>
-              <!-- Panel 2 -->
-              <div
-                class="chat-area chat-panel"
-                id="panel-chat2"
-                role="tabpanel"
-                aria-labelledby="tab-chat2"
-                hidden
-              >
-                <div class="chat dark">
-                  <div class="bubble received">pwiss mo peluk ajul</div>
-                  <div class="bubble sent">MAUU KAMUUU</div>
-                </div>
-                <p class="chat-caption">random random bgt km tiba tiba 💤</p>
-              </div>
-              <!-- Panel 3 -->
-              <div
-                class="chat-area chat-panel"
-                id="panel-chat3"
-                role="tabpanel"
-                aria-labelledby="tab-chat3"
-                hidden
-              >
-                <div class="chat dark">
-                  <div class="bubble received">mw ajul 🥺🥺</div>
-                  <div class="bubble sent">o gmw ak</div>
-                  <div class="bubble received">ajul 😳💛</div>
-                  <div class="bubble sent">cih</div>
-                  <div class="bubble received">be nailong</div>
-                  <div class="bubble sent">cat kuning dlu</div>
-                </div>
-                <p class="chat-caption">ajul mulu akunya egk😠</p>
-              </div>
-            </div>
-            <p class="chat-overall">
-              Every chat like this is also a reason why I love you, but now ajul
-              is on your keychain and can be with you just like my love.
-            </p>
-          </div>
-          <div class="video-block">
-            <h3 class="video-title">Video Dibalik Layar: Review Ajul</h3>
-            <div class="video-wrapper portrait">
-              <iframe
-                width="100%"
-                height="315"
-                src="https://www.youtube.com/embed/zKd5QNfRsRI"
-                title="ajul"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Hadiah 3 -->
-      <section class="gift" id="hadiah3">
-        <div class="gift-inner">
-          <h2>Hadiah Ketiga</h2>
-          <p class="desc">
-            sebenernya gaperlu nunggu kamu ulang tahun buat ngasihnya tapi
-            pengen aja sekalian hehe
-          </p>
-          <div class="video-block">
-            <h3 class="video-title">Review Pompa Galon</h3>
-            <div class="video-wrapper">
-              <iframe
-                width="100%"
-                height="315"
-                src="https://www.youtube.com/embed/6A8H3I5sK24"
-                title="pompa"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Hadiah 4 -->
-      <section class="gift" id="hadiah4">
-        <div class="gift-inner">
-          <h2>Hadiah Keempat</h2>
-          <p class="desc">Birthday blooms, just for you.</p>
-          <div class="photo-focus">
-            <img
-              src="bunga.jpg"
-              alt="Foto memegang bunga"
-              class="focus-photo"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </section>
-
-      <!-- Intro will cover this content until user clicks Next -->
-    </main>
-
-    <script src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <script>
-      // ===== FLOATING HEARTS =====
-      function createHearts() {
-        const container = document.getElementById("hearts-bg");
-        const heartCount = 20;
-        const hearts = ["💕", "💖", "💗", "💝", "💓", "❤️", "🎀"];
-
-        for (let i = 0; i < heartCount; i++) {
-          const heart = document.createElement("div");
-          heart.className = "floating-heart";
-          heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-          heart.style.left = Math.random() * 100 + "%";
-          heart.style.animationDelay = Math.random() * 5 + "s";
-          heart.style.animationDuration = 8 + Math.random() * 4 + "s";
-          heart.style.fontSize = 20 + Math.random() * 20 + "px";
-          container.appendChild(heart);
-        }
-      }
-      createHearts();
-
-      // ===== MUSIC PLAYER =====
-      const bgMusic = document.getElementById("bgMusic");
-      const musicToggle = document.getElementById("musicToggle");
-      const musicPlayer = document.getElementById("music-player");
-      let isMusicPlaying = false;
-
-      // Set volume to 50%
-      bgMusic.volume = 0.5;
-
-      // Try auto-play on page load
-      bgMusic
-        .play()
-        .then(() => {
-          isMusicPlaying = true;
-          musicPlayer.classList.add("playing");
-        })
-        .catch(() => {
-          // Auto-play blocked, wait for user interaction
-          console.log("Auto-play blocked. Click to start music.");
-        });
-
-      // Toggle play/pause
-      musicToggle.addEventListener("click", () => {
-        if (isMusicPlaying) {
-          bgMusic.pause();
-          musicPlayer.classList.remove("playing");
-        } else {
-          bgMusic.play();
-          musicPlayer.classList.add("playing");
-        }
-        isMusicPlaying = !isMusicPlaying;
-      });
-
-      // Auto-play on first user interaction
-      document.body.addEventListener(
-        "click",
-        () => {
-          if (!isMusicPlaying) {
-            bgMusic
-              .play()
-              .then(() => {
-                isMusicPlaying = true;
-                musicPlayer.classList.add("playing");
-              })
-              .catch(() => {});
-          }
-        },
-        { once: true }
-      );
-
-      // ===== CONFETTI =====
-      function triggerConfetti() {
-        const duration = 3000;
-        const end = Date.now() + duration;
-
-        (function frame() {
-          confetti({
-            particleCount: 3,
-            angle: 60,
-            spread: 55,
-            origin: { x: 0 },
-            colors: ["#ffdba9", "#ffc9c9", "#c7f8c2", "#ffb5e8", "#b5f8d3"],
-          });
-          confetti({
-            particleCount: 3,
-            angle: 120,
-            spread: 55,
-            origin: { x: 1 },
-            colors: ["#ffdba9", "#ffc9c9", "#c7f8c2", "#ffb5e8", "#b5f8d3"],
-          });
-
-          if (Date.now() < end) {
-            requestAnimationFrame(frame);
-          }
-        })();
-      }
-
-      // ===== COUNTDOWN INTRO =====
-      const second = 1000,
-        minute = second * 60,
-        hour = minute * 60,
-        day = hour * 24;
-      const countDown = new Date("Nov 20, 2025 00:00:00").getTime();
-      const elIntroD = document.getElementById("intro-days");
-      const elIntroH = document.getElementById("intro-hours");
-      const elIntroM = document.getElementById("intro-minutes");
-      const elIntroS = document.getElementById("intro-seconds");
-      const btnIntroNext = document.getElementById("intro-next");
-      const introText = document.getElementById("intro-text");
-      const introCdList = document.querySelector(".intro .cd-list");
-      const introHeading = document.querySelector(".intro h5");
-
-      const longText =
-        "happy birthday sayangku, semoga kedepannya apapun yang kamu inginkan terwujud, dan apa yang kamu semogakan tersemogakan. juga semoga kita bisa terus ngerayain ulang tahun bareng bareng dan bisa terus bersama selamanyaaa<3\n\n" +
-        "tapi aku sedih, karna waktu itu aku mau cerita tapi ga jadi cerita karna seharusnya ga harus aku ceritain. keuangan aku lagi kacau. jadi aku gabisa ajak kamu kesana kesini sesuai plan aku. dan cuman bisa ngasih ginian🥺🥺🥺.  tadinya mau ngajak kamu makan ramen dan kita foto studio berdua. maaf yaa? tapi nanti kalo aku udah ada aku ajakk kamuuu! dan semoga aku bisa ngewujudin plan aku:)";
-
-      const countdownInterval = setInterval(() => {
-        const now = new Date().getTime();
-        const dist = countDown - now;
-        const d = Math.max(0, Math.floor(dist / day));
-        const h = Math.max(0, Math.floor((dist % day) / hour));
-        const m = Math.max(0, Math.floor((dist % hour) / minute));
-        const s = Math.max(0, Math.floor((dist % minute) / second));
-        if (elIntroD) elIntroD.textContent = String(d).padStart(2, "0");
-        elIntroH.textContent = String(h).padStart(2, "0");
-        elIntroM.textContent = String(m).padStart(2, "0");
-        elIntroS.textContent = String(s).padStart(2, "0");
-        if (dist < 0) {
-          clearInterval(countdownInterval);
-          // CONFETTI TIME! 🎉
-          triggerConfetti();
-
-          // Hide countdown, show message, enable Next
-          introCdList.classList.add("d-none");
-          introHeading.classList.add("d-none");
-
-          // Add smooth fade-in for text
-          introText.classList.remove("d-none");
-          introText.style.opacity = "0";
-          setTimeout(() => {
-            introText.style.transition = "opacity 0.8s ease-in";
-            introText.style.opacity = "1";
-          }, 100);
-
-          new TypeIt("#intro-text", {
-            speed: 35, // Slower = more smooth (was 55)
-            cursor: false,
-            waitUntilVisible: true,
-            afterComplete: function () {
-              // Show click cue ONLY after typing finishes
-              setTimeout(() => {
-                document.getElementById("click-cue").classList.remove("d-none");
-              }, 1000);
-            },
-          })
-            .type(longText)
-            .go();
-        }
-      }, 1000);
-
-      // Click anywhere to continue after typing done
-      let typingDone = false;
-      document
-        .getElementById("intro-text")
-        .addEventListener("DOMSubtreeModified", function () {
-          typingDone = true;
-        });
-
-      document.getElementById("intro").addEventListener("click", () => {
-        const clickCue = document.getElementById("click-cue");
-        if (!clickCue.classList.contains("d-none")) {
-          document.body.classList.remove("intro-active");
-          const intro = document.getElementById("intro");
-          intro.classList.add("animate__fadeOut");
-          setTimeout(() => {
-            intro.remove();
-            // Show carousel after intro
-            document
-              .getElementById("carousel-wrapper")
-              .classList.remove("d-none");
-          }, 400);
-        }
-      });
-
-      // ===== CAROUSEL SLIDER =====
-      let currentSlide = 1;
-      const totalSlides = 4;
-      const slider = document.getElementById("cardSlider");
-      const prevBtn = document.getElementById("prevBtn");
-      const nextBtn = document.getElementById("nextBtn");
-      const dots = document.querySelectorAll(".dot");
-
-      function updateSlider() {
-        // Update cards
-        const cards = document.querySelectorAll(".gift-card");
-        cards.forEach((card, index) => {
-          card.classList.remove("active", "prev", "next");
-          if (index + 1 === currentSlide) {
-            card.classList.add("active");
-          } else if (index + 1 < currentSlide) {
-            card.classList.add("prev");
-          } else {
-            card.classList.add("next");
-          }
-        });
-
-        // Update dots
-        dots.forEach((dot, index) => {
-          dot.classList.toggle("active", index + 1 === currentSlide);
-        });
-
-        // Update buttons
-        prevBtn.disabled = currentSlide === 1;
-        nextBtn.disabled = currentSlide === totalSlides;
-      }
-
-      prevBtn.addEventListener("click", () => {
-        if (currentSlide > 1) {
-          currentSlide--;
-          updateSlider();
-        }
-      });
-
-      nextBtn.addEventListener("click", () => {
-        if (currentSlide < totalSlides) {
-          currentSlide++;
-          updateSlider();
-        }
-      });
-
-      dots.forEach((dot, index) => {
-        dot.addEventListener("click", () => {
-          currentSlide = index + 1;
-          updateSlider();
-        });
-      });
-
-      // Swipe support for mobile
-      let touchStartX = 0;
-      let touchEndX = 0;
-
-      slider.addEventListener("touchstart", (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-      });
-
-      slider.addEventListener("touchend", (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-      });
-
-      function handleSwipe() {
-        if (touchEndX < touchStartX - 50 && currentSlide < totalSlides) {
-          // Swipe left - next
-          currentSlide++;
-          updateSlider();
-        }
-        if (touchEndX > touchStartX + 50 && currentSlide > 1) {
-          // Swipe right - prev
-          currentSlide--;
-          updateSlider();
-        }
-      }
-
-      // ===== CARD TABS SYSTEM =====
-      const cardTabs = document.querySelectorAll(".card-tab");
-
-      cardTabs.forEach((tab) => {
-        tab.addEventListener("click", () => {
-          const targetId = tab.getAttribute("data-tab");
-          const card = tab.closest(".gift-card");
-
-          // Remove active from all tabs in this card
-          card
-            .querySelectorAll(".card-tab")
-            .forEach((t) => t.classList.remove("active"));
-
-          // Remove active from all tab contents in this card
-          card.querySelectorAll(".card-tab-content").forEach((content) => {
-            content.classList.remove("active");
-          });
-
-          // Add active to clicked tab
-          tab.classList.add("active");
-
-          // Add active to target content
-          const targetContent = document.getElementById(targetId);
-          if (targetContent) {
-            targetContent.classList.add("active");
-          }
-        });
-      });
-
-      // Keyboard navigation
-      document.addEventListener("keydown", (e) => {
-        if (
-          document
-            .getElementById("carousel-wrapper")
-            .classList.contains("d-none")
-        )
-          return;
-
-        if (e.key === "ArrowLeft" && currentSlide > 1) {
-          currentSlide--;
-          updateSlider();
-        }
-        if (e.key === "ArrowRight" && currentSlide < totalSlides) {
-          currentSlide++;
-          updateSlider();
-        }
-      });
-
-      // ===== VIDEO-MUSIC SYNC =====
-      // Auto pause music when video plays, resume when video ends/pauses
-      const allVideos = document.querySelectorAll("video");
-
-      allVideos.forEach((video) => {
-        // When video starts playing
-        video.addEventListener("play", () => {
-          if (bgMusic && !bgMusic.paused) {
-            bgMusic.pause();
-            // Add data attribute to track that music was playing
-            video.setAttribute("data-music-was-playing", "true");
-          }
-        });
-
-        // When video pauses or ends
-        video.addEventListener("pause", () => {
-          if (video.getAttribute("data-music-was-playing") === "true") {
-            bgMusic.play();
-            video.removeAttribute("data-music-was-playing");
-          }
-        });
-
-        video.addEventListener("ended", () => {
-          if (video.getAttribute("data-music-was-playing") === "true") {
-            bgMusic.play();
-            video.removeAttribute("data-music-was-playing");
-          }
-        });
-      });
-
-      // Chat Tabs Interaction (Accessible)
-      const tabButtons = document.querySelectorAll(".chat-tab");
-      const panels = document.querySelectorAll(".chat-panel");
-      tabButtons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          // update tab state
-          tabButtons.forEach((b) => {
-            b.classList.toggle("is-active", b === btn);
-            b.setAttribute("aria-selected", b === btn ? "true" : "false");
-          });
-          // show related panel
-          panels.forEach((p) => {
-            const match = p.id === btn.getAttribute("aria-controls");
-            p.classList.toggle("is-active", match);
-            if (match) {
-              p.removeAttribute("hidden");
-            } else {
-              p.setAttribute("hidden", "");
-            }
-          });
-        });
-      });
-
-      // Nav active state saat scroll
-      const links = document.querySelectorAll(".gift-nav a");
-      const sections = Array.from(document.querySelectorAll("section.gift"));
-      if ("IntersectionObserver" in window) {
-        const io = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                const id = "#" + entry.target.id;
-                links.forEach((a) =>
-                  a.classList.toggle("active", a.getAttribute("href") === id)
-                );
-              }
-            });
-          },
-          { threshold: 0.5 }
-        );
-        sections.forEach((s) => io.observe(s));
-      }
-    </script>
-  </body>
-</html>
+/* Professional Modern Design */
+:root {
+  /* Colors - Clean & Minimal */
+  --primary: #2d3748;
+  --secondary: #4a5568;
+  --accent: #f56565;
+  --accent-hover: #e53e3e;
+  --bg: #ffffff;
+  --bg-alt: #f7fafc;
+  --text: #2d3748;
+  --text-light: #718096;
+  --border: #e2e8f0;
+
+  /* Typography */
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+
+  /* Shadows - Subtle */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  /* Radius */
+  --radius: 8px;
+  --radius-lg: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ===== FLOATING HEARTS BACKGROUND ===== */
+.hearts-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.floating-heart {
+  position: absolute;
+  bottom: -50px;
+  animation: floatUp linear infinite;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ===== MUSIC PLAYER ===== */
+.music-player {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 10000;
+}
+
+.music-toggle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: #2d3748;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.music-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  background: #1a202c;
+}
+
+.music-player .paused {
+  display: block;
+}
+
+.music-player .playing {
+  display: none;
+}
+
+.music-player.playing .paused {
+  display: none;
+}
+
+.music-player.playing .playing {
+  display: block;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hero {
+  background: var(--gradient-hero);
+  padding: clamp(2.5rem, 6vw, 5rem) 1.25rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="pink" opacity="0.3"/></svg>');
+  background-size: 50px 50px;
+  opacity: 0.15;
+  animation: bgMove 20s linear infinite;
+}
+
+@keyframes bgMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+.hero h1 {
+  margin: 0 0 1rem;
+  font-weight: 600;
+  font-size: clamp(1.9rem, 5.5vw, 3rem);
+  letter-spacing: 0.5px;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 1;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(20deg);
+  }
+}
+.lead {
+  max-width: 780px;
+  margin: 0 auto 2rem;
+  font-weight: 400;
+  font-size: clamp(0.95rem, 2.8vw, 1.15rem);
+}
+
+.gift-nav {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  overflow-x: auto;
+  padding: 0.5rem 0.25rem;
+  scrollbar-width: thin;
+}
+.gift-nav a {
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  color: var(--text);
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-lg);
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.gift-nav a:hover {
+  background: var(--pastel-accent);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: var(--shadow-lifted);
+  border-color: var(--pastel-accent);
+}
+
+.gift-nav a:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+main {
+  width: 100%;
+}
+.gift {
+  padding: 3rem 1.25rem 2.75rem;
+}
+.gift-inner {
+  max-width: 930px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: clamp(1.75rem, 4vw, 2.75rem) clamp(1.2rem, 3vw, 2.25rem);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gift-inner:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lifted);
+}
+.gift + .gift {
+  margin-top: 0.75rem;
+}
+.gift h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.4rem, 4.5vw, 2.15rem);
+  font-weight: 600;
+}
+.desc {
+  margin: 0 0 1.75rem;
+  font-size: 1rem;
+}
+
+.video-block {
+  margin-top: 1.5rem;
+}
+.video-title {
+  font-size: 1rem;
+  margin: 0 0 0.75rem;
+  font-weight: 500;
+}
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #faf7f0;
+}
+.video-wrapper iframe {
+  display: block;
+  width: 100%;
+  height: 315px;
+  border: 0;
+}
+
+/* Portrait short (9:16) */
+.video-wrapper.portrait {
+  max-width: 420px; /* tampilan reels/shorts */
+  margin-inline: auto;
+  aspect-ratio: 9 / 16;
+  background: #000; /* letterbox nyaman */
+}
+.video-wrapper.portrait iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Photo styles */
+.photo-top {
+  margin: 1.25rem 0 1.75rem;
+  text-align: center;
+}
+.rounded-photo {
+  width: min(260px, 70%);
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  box-shadow: var(--shadow-soft);
+  margin: 0 auto;
+}
+
+.photo-focus {
+  margin: 1.5rem 0 0;
+  text-align: center;
+}
+.focus-photo {
+  width: min(480px, 95%);
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  border: 8px solid #fff;
+  margin: 0 auto; /* center horizontally */
+}
+
+/* Chat area */
+.chat-area {
+  margin: 1.25rem 0 1.75rem;
+}
+.chat {
+  background: #1e1e1e; /* dark mode WA approximasi */
+  padding: 1rem 0.9rem 1.1rem;
+  border-radius: var(--radius-md);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  font-size: 0.85rem;
+  box-shadow: var(--shadow-soft);
+}
+.bubble {
+  max-width: 75%;
+  padding: 0.6rem 0.9rem;
+  line-height: 1.3;
+  border-radius: 18px;
+  word-wrap: break-word;
+}
+.bubble.received {
+  background: var(--bubble-received);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+.bubble.sent {
+  background: var(--bubble-sent);
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+.chat-caption {
+  margin: 0.75rem 0.25rem 0;
+  font-size: 0.7rem;
+  text-align: center;
+  opacity: 0.75;
+}
+
+/* Multi Chat Show */
+.chat-show {
+  margin: 1.5rem 0 2rem;
+}
+.chat-tabs {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.chat-tab {
+  background: #fff;
+  border: 1px solid var(--border-soft);
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-lg);
+  font-family: inherit;
+  font-size: 0.7rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: background 0.25s, color 0.25s, transform 0.25s;
+}
+.chat-tab.is-active {
+  background: var(--pastel-alt);
+  color: #442222;
+  font-weight: 600;
+}
+.chat-tab:hover {
+  background: var(--pastel-accent);
+}
+
+.chat-panels {
+  position: relative;
+}
+.chat-panel {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+.chat-panel.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.chat-overall {
+  margin: 0.35rem 0 0;
+  font-size: 0.65rem;
+  text-align: center;
+  opacity: 0.65;
+}
+
+@media (min-width: 640px) {
+  .chat-tab {
+    font-size: 0.75rem;
+  }
+  .chat-overall {
+    font-size: 0.7rem;
+  }
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2.5rem 1rem 3rem;
+  font-size: 0.9rem;
+  background: #fff;
+}
+.footer p {
+  margin: 0 auto;
+  max-width: 740px;
+}
+
+/* Utilities */
+@media (min-width: 760px) {
+  .gift-nav a {
+    font-size: 0.9rem;
+  }
+  .chat {
+    font-size: 0.9rem;
+  }
+  .bubble {
+    max-width: 60%;
+  }
+}
+@media (max-width: 520px) {
+  .video-wrapper:not(.portrait) iframe {
+    height: 240px;
+  }
+  .focus-photo {
+    border-width: 6px;
+  }
+  .rounded-photo {
+    border-width: 5px;
+  }
+  .gift-inner {
+    padding: 1.5rem 1.25rem;
+  }
+  .gift {
+    padding: 2.25rem 0.9rem 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gift-nav a {
+    transition: none;
+  }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Minimal anchor focus styling */
+.gift-nav a:focus {
+  outline: 3px solid var(--pastel-alt);
+  outline-offset: 3px;
+}
+
+/* Note Section */
+.note {
+  padding: 0 1.25rem 3rem;
+}
+.note-inner {
+  max-width: 930px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px dashed var(--border-soft);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3vw, 2rem);
+  box-shadow: var(--shadow-soft);
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 219, 169, 0.35),
+    rgba(255, 201, 201, 0.35)
+  );
+}
+.note h2 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.25rem, 3.8vw, 1.75rem);
+}
+.note-desc {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+.note-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+.note-card {
+  background: #fff;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: 0.85rem;
+}
+.note-label {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 0.35rem;
+  opacity: 0.8;
+}
+.note-input {
+  width: 100%;
+  min-height: 110px;
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  padding: 0.75rem 0.85rem;
+  font-family: inherit;
+  resize: vertical;
+  background: #fffdf9;
+}
+.note-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0.75rem 0 0;
+}
+.btn {
+  appearance: none;
+  border: 1px solid transparent;
+  background: #222;
+  color: #fff;
+  padding: 0.6rem 0.9rem;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+.btn.ghost {
+  background: #fff;
+  border-color: var(--border-soft);
+  color: #333;
+}
+.note-preview {
+  margin: 1rem 0 0;
+}
+.note-preview h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+.preview-bubble {
+  white-space: pre-wrap;
+  background: #fff;
+  border: 1px solid var(--border-soft);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: var(--shadow-soft);
+}
+
+@media (min-width: 720px) {
+  .note-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Active link style */
+.gift-nav a.active {
+  background: var(--pastel-alt);
+}
+
+/* Intro overlay */
+body.intro-active main,
+body.intro-active header,
+body.intro-active .footer {
+  display: none;
+}
+
+.intro {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #fff6d6, #ffe5e5, #ffd6f0);
+  background-size: 200% 200%;
+  animation: gradientFlow 8s ease infinite;
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+  padding: 1rem;
+}
+
+@keyframes gradientFlow {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Glassmorphism card */
+.glass {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.intro-inner {
+  width: min(860px, 95vw);
+  border-radius: 20px;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.gradient-text {
+  color: #2d3748;
+  font-weight: 600;
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  margin-bottom: 1.5rem;
+}
+
+.highlight {
+  color: #f56565;
+  font-weight: 700;
+}
+
+/* Animated countdown cards */
+.cd-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  padding: 0;
+  margin: 0 0 2rem;
+}
+
+.cd-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cd-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cd-number {
+  display: block;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: #2d3748;
+}
+
+.cd-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #718096;
+}
+
+/* Typing text animation */
+.typing-text {
+  white-space: pre-wrap;
+  line-height: 1.7;
+  font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+}
+
+/* Gradient button */
+.btn-gradient {
+  background: var(--gradient-magic);
+  background-size: 200% auto;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.8rem 2rem;
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(255, 107, 157, 0.3);
+  transition: all 0.3s ease;
+  animation: shimmer 3s linear infinite;
+}
+
+.btn-gradient:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 107, 157, 0.5);
+}
+
+.btn-gradient:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  animation: none;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Click cue animation */
+.click-cue {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  animation: bounce 1s ease-in-out infinite;
+}
+
+.hand-pointer {
+  display: inline-block;
+  animation: point 1s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes point {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+}
+
+.intro .teks {
+  white-space: pre-wrap;
+}
+
+.intro-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.intro .btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Celebrate section */
+.celebrate {
+  padding: 2rem 1rem 3rem;
+}
+.celebrate .container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+#timer h5 {
+  margin: 0 0 0.75rem;
+  font-weight: 500;
+}
+.cd-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(70px, 1fr));
+  gap: 0.75rem;
+  padding: 0;
+  margin: 0 0 0.75rem;
+}
+.cd-list li {
+  background: #fff;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  padding: 0.9rem 0.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  font-size: 0.8rem;
+}
+.cd-list li span {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+}
+
+.slides {
+  display: grid;
+  place-items: center;
+  min-height: 180px;
+  margin-top: 0.75rem;
+}
+.paper {
+  background: #fffefc;
+  border: 1px solid var(--border-soft);
+  border-radius: 14px;
+  box-shadow: var(--shadow-soft);
+  padding: 1rem;
+}
+.paper-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.teks {
+  margin: 0;
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  line-height: 1.6;
+}
+
+/* helpers used in celebrate */
+.d-none {
+  display: none !important;
+}
+.text-center {
+  text-align: center;
+}
+.text-muted {
+  opacity: 0.7;
+}
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+/* ===== CAROUSEL CARD SLIDER ===== */
+.carousel-wrapper {
+  min-height: 100vh;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.carousel-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.carousel-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.carousel-header h1 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin: 0 0 0.5rem;
+  color: #2d3748;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.carousel-subtitle {
+  font-size: 1rem;
+  color: #718096;
+  margin: 0;
+  font-weight: 400;
+}
+
+.card-slider {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+.gift-card {
+  position: absolute;
+  width: min(90vw, 1000px);
+  height: calc(100vh - 240px);
+  max-height: 85vh;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  padding: 2.5rem;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateX(100%) scale(0.95);
+  pointer-events: none;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #d0d0d0 transparent;
+}
+
+/* Active card */
+.gift-card.active {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  pointer-events: all;
+  z-index: 10;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Previous card */
+.gift-card.prev {
+  opacity: 0;
+  transform: translateX(-100%) scale(0.95);
+  z-index: 5;
+}
+
+/* Next card */
+.gift-card.next {
+  opacity: 0;
+  transform: translateX(100%) scale(0.95);
+  z-index: 5;
+}
+
+.card-content {
+  position: relative;
+}
+
+.card-number {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  width: 50px;
+  height: 50px;
+  background: #2d3748;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Tabs */
+.card-tabs {
+  display: flex;
+  gap: 0.75rem;
+  margin: 1.5rem 0 1.5rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0;
+}
+
+.card-tab {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background: transparent;
+  border-bottom: 3px solid transparent;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #666;
+  margin-bottom: -1px;
+}
+
+.card-tab:hover {
+  color: #2d3748;
+  border-bottom-color: #cbd5e0;
+}
+
+.card-tab.active {
+  color: #2d3748;
+  border-bottom-color: #2d3748;
+  font-weight: 600;
+}
+
+/* Card Tab Content */
+.card-tab-content {
+  display: none;
+  animation: fadeIn 0.4s ease;
+}
+
+.card-tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-tab-content .card-desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 1.5rem 0;
+  color: #555;
+}
+
+.gift-card h2 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  color: #2d3748;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.card-desc {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  color: #4a5568;
+}
+
+/* Carousel controls */
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.carousel-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: var(--text);
+}
+
+.carousel-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #d0d0d0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: #2d3748;
+  width: 32px;
+  border-radius: 5px;
+}
+
+.dot:hover:not(.active) {
+  background: #999;
+}
+
+/* Responsive carousel */
+@media (max-width: 768px) {
+  .card-slider {
+    height: calc(100vh - 180px);
+  }
+
+  .gift-card {
+    width: 95vw;
+    height: calc(100vh - 220px);
+    max-height: 88vh;
+    padding: 1.5rem;
+  }
+
+  .carousel-controls {
+    gap: 1rem;
+  }
+
+  .carousel-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .card-slider {
+    height: calc(100vh - 160px);
+  }
+
+  .gift-card {
+    width: 95vw;
+    height: calc(100vh - 200px);
+    max-height: 90vh;
+    padding: 1.25rem;
+  }
+
+  .card-number {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+}
